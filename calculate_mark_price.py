@@ -64,8 +64,8 @@ def run(expiry, strikes, market, strikes_available):
             'timestamp': np.median(data_df['timestamp'])
         }
         if strike in strikes_available:
-            results[strike]['C_diff'] = str((results[strike]['C'] / results[strike]['C_ref'] - 1) * 100)[:4] + '%'
-            results[strike]['P_diff'] = str((results[strike]['P'] / results[strike]['P_ref'] - 1) * 100)[:4] + '%'
+            results[strike]['C_diff'] = str((results[strike]['C'] / results[strike]['C_ref'] - 1) * 100)[:5] + '%'
+            results[strike]['P_diff'] = str((results[strike]['P'] / results[strike]['P_ref'] - 1) * 100)[:5] + '%'
 
     return results
 
