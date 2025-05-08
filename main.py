@@ -1,8 +1,11 @@
 import argparse
+import sys
 
 import data_out
 import run_scheduler
+from market_data import Deribit
 
+sys.argv = ['main.py', '23MAY25', '20', '5', '98000', '99000']
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Deribit Mark Price Calculator")
