@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd76d82f-c3c2-4cd2-9fbb-f590650090f8" name="Changes" comment="" />
+    <list default="true" id="cd76d82f-c3c2-4cd2-9fbb-f590650090f8" name="Changes" comment="remove comments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mminderhout"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mminderhout/deribit-mark-prices.git",
+    "accountId": "cba9ef0f-4f95-4990-88e5-d47f17534627"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
 }]]></component>
@@ -21,8 +43,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.main.executor": "Run",
+    "Python.market_data.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -41,6 +66,113 @@
       <option name="presentableId" value="Default" />
       <updated>1746689568970</updated>
     </task>
+    <task id="LOCAL-00001" summary="set up file structure">
+      <option name="closed" value="true" />
+      <created>1746710411648</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746710411648</updated>
+    </task>
+    <task id="LOCAL-00002" summary="set up data delivery, start on fitting iv curve and calculating mark prices">
+      <option name="closed" value="true" />
+      <created>1746722275131</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746722275131</updated>
+    </task>
+    <task id="LOCAL-00003" summary="lumping all iv's together for fitting a curve">
+      <option name="closed" value="true" />
+      <created>1746732817095</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746732817095</updated>
+    </task>
+    <task id="LOCAL-00004" summary="calculated required results in each run">
+      <option name="closed" value="true" />
+      <created>1746738453497</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746738453497</updated>
+    </task>
+    <task id="LOCAL-00005" summary="send intermediate results to main to aggregate and export">
+      <option name="closed" value="true" />
+      <created>1746742537274</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746742537274</updated>
+    </task>
+    <task id="LOCAL-00006" summary="remove hardcoded args">
+      <option name="closed" value="true" />
+      <created>1746742630855</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746742630855</updated>
+    </task>
+    <task id="LOCAL-00007" summary="requirements">
+      <option name="closed" value="true" />
+      <created>1746743705861</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746743705861</updated>
+    </task>
+    <task id="LOCAL-00008" summary="remove unused import">
+      <option name="closed" value="true" />
+      <created>1746743759753</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746743759753</updated>
+    </task>
+    <task id="LOCAL-00009" summary="remove comments">
+      <option name="closed" value="true" />
+      <created>1746745363202</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746745363202</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="set up file structure" />
+    <MESSAGE value="set up data delivery, start on fitting iv curve and calculating mark prices" />
+    <MESSAGE value="lumping all iv's together for fitting a curve" />
+    <MESSAGE value="calculated required results in each run" />
+    <MESSAGE value="send intermediate results to main to aggregate and export" />
+    <MESSAGE value="remove hardcoded args" />
+    <MESSAGE value="requirements" />
+    <MESSAGE value="remove unused import" />
+    <MESSAGE value="remove comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove comments" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
