@@ -19,7 +19,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    results = data_out.OutputStorage()
+    results = {}
     run_scheduler.start(args.t1, args.t2, args.expiry, args.strikes)
 
 
