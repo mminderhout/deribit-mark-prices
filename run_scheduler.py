@@ -1,5 +1,6 @@
 import time
 import requests
+from datetime import datetime, timezone
 
 from market_data import Deribit
 import calculate_mark_price
@@ -10,7 +11,6 @@ def get_available_strikes(expiry_code, currency='BTC'):
     params = {"currency": currency, "kind": "option"}
     response = requests.get(url, params=params)
     data = response.json()
-
     strikes = set()
 
     for instrument in data["result"]:
@@ -19,12 +19,19 @@ def get_available_strikes(expiry_code, currency='BTC'):
 
     return sorted(strikes)
 
+
 def start(runtime, interval, expiry, strikes):
     strikes_available = get_available_strikes(expiry)
     market = Deribit(expiry, strikes_available)
     market.start()
 
+    results = {}
+
     start_time = time.time()
     while time.time() < start_time + runtime:
         time.sleep(interval)
-        calculate_mark_price.run(expiry, strikes, market, strikes_available)
+        current_results = calculate_mark_price.run(expiry, strikes, market, strikes_available)
+        timestamp = datetime.fromtimestamp(current_results[strikes[0]]['timestamp'] / 1000, tz=timezone.utc).isoformat()
+        results[timestamp] = current_results
+
+    return results

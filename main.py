@@ -1,12 +1,11 @@
 import argparse
 import sys
+import pandas as pd
 
-import data_out
 import run_scheduler
-from market_data import Deribit
 
 #TODO: remove this line before final commit
-sys.argv = ['main.py', '23MAY25', '20', '5', '98000', '99000']
+sys.argv = ['main.py', '23MAY25', '20', '5', '98000', '98500', '99000']
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Deribit Mark Price Calculator")
@@ -17,10 +16,21 @@ def parse_args():
     return parser.parse_args()
 
 
+def export_results(dict, filename='results.csv'):
+    rows = []
+    for timestamp, strikes in dict.items():
+        for strike, metrics in strikes.items():
+            row = {'timestamp': timestamp, 'strike': strike}
+            row.update(metrics)  # Add 'mark', 'iv', etc.
+            rows.append(row)
+    df = pd.DataFrame(rows)
+    df.to_csv(filename, index=False, encoding='utf-8-sig')
+
+
 def main():
     args = parse_args()
-    results = {}
-    run_scheduler.start(args.t1, args.t2, args.expiry, args.strikes)
+    results = run_scheduler.start(args.t1, args.t2, args.expiry, args.strikes)
+    export_results(results)
 
 
 if __name__ == "__main__":

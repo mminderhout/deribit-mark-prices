@@ -16,14 +16,8 @@ def fit_iv_curve(data, func, trim_outer_strikes=7, trim_high_iv=1.8):
     y_trim = y_points[mask][trim_outer_strikes:-trim_outer_strikes]
 
     params, covariance = curve_fit(func, x_trim, y_trim)
-
-    #TODO: remove plotting
-    plt.scatter(x_trim, func(x_trim, *params), color='red')
-    plt.scatter(x_trim, y_trim, color='blue')
-    plt.savefig('fitted values in red 3.png')
-    plt.close()
-
     return params
+
 
 def get_time_to_expiry(expiry_code):
     day = int(expiry_code[:2])
@@ -32,12 +26,11 @@ def get_time_to_expiry(expiry_code):
 
     date_str = f"{day} {month_str} {year} 08:00"
     expiry = datetime.strptime(date_str, "%d %b %Y %H:%M").replace(tzinfo=timezone.utc)
-
     now = datetime.now(timezone.utc)
 
     delta_years = (expiry - now).total_seconds() / (365.25 * 24 * 3600)
-
     return delta_years
+
 
 def bs_option_price(iv, tau, S, r, K):
     d1 = 1/(iv * np.sqrt(tau)) * (np.log(S/K) + (r + (iv**2 / 2)) * tau)
@@ -48,8 +41,6 @@ def bs_option_price(iv, tau, S, r, K):
 
 
 def run(expiry, strikes, market, strikes_available):
-    # TODO: send results to main somehow
-
     data = market.get_current_prices()
     data_df = pd.DataFrame.from_dict(data, orient="index")
     data_df['strike'] = np.repeat(strikes_available, 2)
@@ -72,6 +63,11 @@ def run(expiry, strikes, market, strikes_available):
             'P_ref': data_df[data_df.index.str.endswith(str(strike)[:-2] + '-P')]['mark'].item() if strike in strikes_available else None,
             'timestamp': np.median(data_df['timestamp'])
         }
+        if strike in strikes_available:
+            results[strike]['C_diff'] = str((results[strike]['C'] / results[strike]['C_ref'] - 1) * 100)[:4] + '%'
+            results[strike]['P_diff'] = str((results[strike]['P'] / results[strike]['P_ref'] - 1) * 100)[:4] + '%'
+
+    return results
 
 
 

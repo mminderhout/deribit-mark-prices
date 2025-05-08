@@ -2,6 +2,7 @@ import json
 from websocket import WebSocketApp
 import threading
 
+
 class Deribit:
     def __init__(self, expiry, strikes, currency='BTC'):
         self.ws = None
@@ -9,6 +10,7 @@ class Deribit:
         self.strikes = strikes
         self.currency = currency
         self.instrument_data = {}
+
 
     def on_message(self, ws, message):
         data = json.loads(message)
@@ -25,6 +27,8 @@ class Deribit:
                 'interest_rate': tick.get('interest_rate'),
                 'timestamp': tick.get('timestamp'),
             }
+
+
     def on_open(self, ws):
         print("WebSocket Connected.")
         for strike in self.strikes:
@@ -39,6 +43,7 @@ class Deribit:
                 }
                 ws.send(json.dumps(sub_msg))
 
+
     def start(self):
         def run():
             self.ws = WebSocketApp(
@@ -50,6 +55,7 @@ class Deribit:
         thread = threading.Thread(target=run)
         thread.daemon = True
         thread.start()
+
 
     def get_current_prices(self):
         return self.instrument_data.copy()
