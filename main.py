@@ -5,6 +5,7 @@ import data_out
 import run_scheduler
 from market_data import Deribit
 
+#TODO: remove this line before final commit
 sys.argv = ['main.py', '23MAY25', '20', '5', '98000', '99000']
 
 def parse_args():
