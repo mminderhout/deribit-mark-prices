@@ -4,8 +4,6 @@ import pandas as pd
 
 import run_scheduler
 
-#TODO: remove this line before final commit
-sys.argv = ['main.py', '23MAY25', '20', '5', '98000', '98500', '99000']
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Deribit Mark Price Calculator")
