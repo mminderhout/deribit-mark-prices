@@ -5,7 +5,7 @@ import run_scheduler
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Deribit Mark Price Calculator")
+    parser = argparse.ArgumentParser()
     parser.add_argument("expiry", type=str, help="Expiry code (e.g. '23MAY25')")
     parser.add_argument("t1", type=int, help="Total runtime in seconds")
     parser.add_argument("t2", type=int, help="Interval in seconds between computations")
@@ -18,7 +18,7 @@ def export_results(dict, filename='results.csv'):
     for timestamp, strikes in dict.items():
         for strike, metrics in strikes.items():
             row = {'timestamp': timestamp, 'strike': strike}
-            row.update(metrics)  # Add 'mark', 'iv', etc.
+            row.update(metrics)
             rows.append(row)
     df = pd.DataFrame(rows)
     df.to_csv(filename, index=False, encoding='utf-8-sig')

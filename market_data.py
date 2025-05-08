@@ -30,7 +30,6 @@ class Deribit:
 
 
     def on_open(self, ws):
-        print("WebSocket Connected.")
         for strike in self.strikes:
             for opt_type in ["C", "P"]:
                 instrument = f"{self.currency}-{self.expiry_code}-{int(strike)}-{opt_type}"

@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from scipy.stats import norm
 from datetime import datetime, timezone
@@ -8,7 +7,6 @@ from datetime import datetime, timezone
 
 def fit_iv_curve(data, func, trim_outer_strikes=7, trim_high_iv=1.8):
     x_points = np.tile(data['strike'].values, 2)
-    # x_points = np.concatenate([x_points, x_points])
     y_points = data[['bid_iv', 'ask_iv']].values.flatten()
 
     mask = (y_points != 0) & (y_points < np.mean(y_points) * trim_high_iv)
