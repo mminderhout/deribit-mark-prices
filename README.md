@@ -6,6 +6,7 @@ python main.py <EXPIRY_CODE> <T1> <T2> <STRIKE1> [<STRIKE2> <STRIKE3> ...]
 - T1: Total runtime in seconds
 - T2: Interval between computations in seconds
 - STRIKE ...: List of strike prices of at least length 1, additional strike prices are optional
+- python version is 3.12
 
 For example: 
 ```shell
