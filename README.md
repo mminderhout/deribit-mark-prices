@@ -12,9 +12,9 @@ For example:
 ```shell
 python main.py 23MAY25 20 5 98000 98500 99000
 ```
-## Output: 
+## Output 
 a results.csv file in the same directory. <br>
-#### Columns:  
+#### Columns  
 - timestamp,<br> 
 - strike, <br>
 - C (calculated call mark price),<br> 
@@ -24,13 +24,13 @@ a results.csv file in the same directory. <br>
 - C_diff (C/C_ref -1, displayed as percentage),<br>
 - P_diff (P/P_ref -1, displayed as percentage).
 
-## Key Challenges:
+## Key Challenges
  - I have worked extensively in existing projects, which provides me with a template for structure, variable names setting up a project involving multiple files from scratch was new for me. I'm sure the structure is not quite optimized, but to me the organization makes sense (see following section).
  - Using a websocket api was also new for me.
  - The main difficulty in terms of logic is in determining the (implied) volatility for the calculation of mark prices. I believe there are many options, and a wide range of potential complexity that you can add here. I have kept my implementation simple, to focus on delivering a working product first, and potentially improving performance later. 
  - After calculating the mark prices, there is a lot of data hanging around in different variables. Sorting through this to decide which data is needed when and where, in what format, and how that can be accomplished as efficiently as possible is a challenge. I have not spent much time on cleaning up the code, so there are likely inefficiencies with redundant data and/or data transformations.
 
-## Reasoning for the design and assumptions made:
+## Reasoning for the design and assumptions made
 The project is split in 4 files, which separately take care of:
 - accounting (main.py): taking in arguments and passing these on, collecting results and manipulating these for export.
 - scheduling (run_scheduler.py): ensuring that every t2 seconds a new calculation occurs, until t1 seconds have passed. 
