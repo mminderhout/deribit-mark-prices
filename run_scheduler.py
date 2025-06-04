@@ -1,26 +1,11 @@
 import time
-import requests
 from datetime import datetime, timezone
 
 from market_data import Deribit
-import calculate_mark_price
+import analysis
 
 
-def get_available_strikes(expiry_code, currency='BTC'):
-    url = "https://www.deribit.com/api/v2/public/get_instruments"
-    params = {"currency": currency, "kind": "option"}
-    response = requests.get(url, params=params)
-    data = response.json()
-    strikes = set()
-
-    for instrument in data["result"]:
-        if instrument["expiration_timestamp"] and expiry_code in instrument["instrument_name"]:
-            strikes.add(instrument["strike"])
-
-    return sorted(strikes)
-
-
-def start(runtime, interval, expiry, strikes):
+def do_runs(runtime, interval, expiry, strikes):
     strikes_available = get_available_strikes(expiry)
     market = Deribit(expiry, strikes_available)
     market.start()

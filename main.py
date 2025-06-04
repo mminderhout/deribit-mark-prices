@@ -26,7 +26,7 @@ def export_results(dict, filename='results.csv'):
 
 def main():
     args = parse_args()
-    results = run_scheduler.start(args.t1, args.t2, args.expiry, args.strikes)
+    results = run_scheduler.do_runs(args.t1, args.t2, args.expiry, args.strikes)
     export_results(results)
 
 
