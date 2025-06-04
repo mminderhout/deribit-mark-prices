@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cd76d82f-c3c2-4cd2-9fbb-f590650090f8" name="Changes" comment="update readme">
+    <list default="true" id="cd76d82f-c3c2-4cd2-9fbb-f590650090f8" name="Changes" comment="groundwork for use of MarketAnalysis class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calculate_mark_price.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/market_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_scheduler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746747799975</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="groundwork for use of MarketAnalysis class">
+      <option name="closed" value="true" />
+      <created>1749028445506</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749028445506</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,7 +191,8 @@
     <MESSAGE value="remove unused import" />
     <MESSAGE value="remove comments" />
     <MESSAGE value="update readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
+    <MESSAGE value="groundwork for use of MarketAnalysis class" />
+    <option name="LAST_COMMIT_MESSAGE" value="groundwork for use of MarketAnalysis class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

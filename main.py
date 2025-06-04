@@ -2,6 +2,7 @@ import argparse
 import pandas as pd
 
 import run_scheduler
+from analysis import MarketAnalysis
 
 
 def parse_args():
@@ -13,9 +14,9 @@ def parse_args():
     return parser.parse_args()
 
 
-def export_results(dict, filename='results.csv'):
+def export_results(results, filename='results2.csv'):
     rows = []
-    for timestamp, strikes in dict.items():
+    for timestamp, strikes in results.items():
         for strike, metrics in strikes.items():
             row = {'timestamp': timestamp, 'strike': strike}
             row.update(metrics)
@@ -26,8 +27,9 @@ def export_results(dict, filename='results.csv'):
 
 def main():
     args = parse_args()
-    results = run_scheduler.do_runs(args.t1, args.t2, args.expiry, args.strikes)
-    export_results(results)
+    analysis = MarketAnalysis(args.expiry, args.strikes)
+    run_scheduler.do_runs(analysis, args.t1, args.t2)
+    export_results(analysis.results)
 
 
 if __name__ == "__main__":

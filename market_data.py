@@ -56,5 +56,5 @@ class Deribit:
         thread.start()
 
 
-    def get_current_prices(self):
+    def get_current_market_data(self):
         return self.instrument_data.copy()
