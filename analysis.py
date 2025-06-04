@@ -20,7 +20,7 @@ class MarketAnalysis:
 
 
     def get_time_to_expiry(self):
-        expiry_code = self.market.expiry_code
+        expiry_code = self.expiry_code
 
         day = int(expiry_code[:2])
         month = expiry_code[2:5].upper()
@@ -42,8 +42,9 @@ class MarketAnalysis:
         response = requests.get(url, params=params)
         data = response.json()
         strikes = set()
+        expiry_code = self.expiry_code[1:] if self.expiry_code[0] == '0' else self.expiry_code
         for instrument in data["result"]:
-            if instrument["expiration_timestamp"] and self.expiry_code in instrument["instrument_name"]:
+            if expiry_code in instrument["instrument_name"]:
                 strikes.add(instrument["strike"])
         return sorted(strikes)
 

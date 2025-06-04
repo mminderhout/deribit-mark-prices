@@ -14,7 +14,7 @@ def parse_args():
     return parser.parse_args()
 
 
-def export_results(results, filename='results2.csv'):
+def export_results(results, filename='results.csv'):
     rows = []
     for timestamp, strikes in results.items():
         for strike, metrics in strikes.items():

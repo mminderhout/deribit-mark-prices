@@ -6,7 +6,7 @@ import threading
 class Deribit:
     def __init__(self, expiry, strikes, currency='BTC'):
         self.ws = None
-        self.expiry_code = expiry
+        self.expiry_code = expiry[1:] if expiry[0] == '0' else expiry
         self.strikes = strikes
         self.currency = currency
         self.instrument_data = {}
