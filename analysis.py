@@ -93,13 +93,12 @@ class MarketAnalysis:
                 'P': put / S,
                 'C_ref': data_df[data_df.index.str.endswith(str(strike)[:-2] + '-C')]['mark'].item() if strike in self.available_strikes else None,
                 'P_ref': data_df[data_df.index.str.endswith(str(strike)[:-2] + '-P')]['mark'].item() if strike in self.available_strikes else None,
-                'timestamp': np.median(data_df['timestamp'])
             }
             if strike in self.available_strikes:
                 results[strike]['C_diff'] = str(round((results[strike]['C'] / results[strike]['C_ref'] - 1) * 100, 2)) + '%'
                 results[strike]['P_diff'] = str(round((results[strike]['P'] / results[strike]['P_ref'] - 1) * 100, 2)) + '%'
 
-        timestamp = datetime.fromtimestamp(results[self.strikes[0]]['timestamp'] / 1000, tz=timezone.utc).isoformat()
+        timestamp = datetime.fromtimestamp(data_df['timestamp'].max() / 1000, tz=timezone.utc).isoformat()
         self.results[timestamp] = results
 
 

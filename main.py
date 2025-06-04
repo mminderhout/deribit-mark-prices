@@ -15,12 +15,11 @@ def parse_args():
 
 
 def export_results(results, filename='results.csv'):
-    rows = []
-    for timestamp, strikes in results.items():
-        for strike, metrics in strikes.items():
-            row = {'timestamp': timestamp, 'strike': strike}
-            row.update(metrics)
-            rows.append(row)
+    rows = [
+        {'timestamp': timestamp, 'strike': strike, **data}
+        for timestamp, strikes in results.items()
+        for strike, data in strikes.items()
+    ]
     df = pd.DataFrame(rows)
     df.to_csv(filename, index=False, encoding='utf-8-sig')
 
