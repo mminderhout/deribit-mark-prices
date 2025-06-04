@@ -87,17 +87,17 @@ class MarketAnalysis:
 
         results = {}
         for strike, iv in zip(self.strikes, my_iv):
-            call, put = self.bs_option_price(iv/100, tau, S, r, strike)
+            call, put = self.bs_option_price(iv / 100, tau, S, r, strike)
             results[strike] = {
-                'C': call/S,
-                'P': put/S,
+                'C': call / S,
+                'P': put / S,
                 'C_ref': data_df[data_df.index.str.endswith(str(strike)[:-2] + '-C')]['mark'].item() if strike in self.available_strikes else None,
                 'P_ref': data_df[data_df.index.str.endswith(str(strike)[:-2] + '-P')]['mark'].item() if strike in self.available_strikes else None,
                 'timestamp': np.median(data_df['timestamp'])
             }
             if strike in self.available_strikes:
-                results[strike]['C_diff'] = str((results[strike]['C'] / results[strike]['C_ref'] - 1) * 100)[:5] + '%'
-                results[strike]['P_diff'] = str((results[strike]['P'] / results[strike]['P_ref'] - 1) * 100)[:5] + '%'
+                results[strike]['C_diff'] = str(round((results[strike]['C'] / results[strike]['C_ref'] - 1) * 100, 2)) + '%'
+                results[strike]['P_diff'] = str(round((results[strike]['P'] / results[strike]['P_ref'] - 1) * 100, 2)) + '%'
 
         timestamp = datetime.fromtimestamp(results[self.strikes[0]]['timestamp'] / 1000, tz=timezone.utc).isoformat()
         self.results[timestamp] = results
